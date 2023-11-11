@@ -8,7 +8,9 @@ import requests
 from bs4 import BeautifulSoup 
 
 #-----------------------------------------------------
-
+with open('url.json') as json_file:
+    data = json.load(json_file)
+print(data)
 #-----------------------------------------------------
 def main():
     print("Greeetings User")
@@ -96,35 +98,3 @@ def importTabs():
     print()
 
 #-----------------------------------------------------
-
-listofDictionaries = [
-    {
-        "Index": 1,
-        "Title": "SE Factory",
-        "Url": 'https://https://www.sefactory.io',
-        "NestedTabs": {
-            "Title": "UI",
-            "Url": 'https://www.sefactory.io/uix'
-        }
-    },
-    {
-        "Index": 2,
-        "Title": "Google",
-        "Url": 'https://https://www.google.com',
-    },
-    {
-        "Index": 3,
-        "Title": "W3schools",
-        "Url": 'https://www.w3schools.com',
-        "NestedTabs": {
-            "Title": "Html",
-            "Url": 'https://www.w3schools.com/html/default.asp',
-            "Title1": "Css",
-            "Url1": 'https://www.w3schools.com/css/default.asp',
-            "Title2": 'JavaScript',
-            "Url2": 'https://www.w3schools.com/js/default.asp'
-        }
-    }
-]
-with open("url1.json", "w") as outfile: 
-	json.dump(listofDictionaries, outfile)

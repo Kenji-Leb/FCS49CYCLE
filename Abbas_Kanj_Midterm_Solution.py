@@ -52,6 +52,6 @@ def main():
 #-----------------------------------------------------
 def displaymenu():
     print("----------------------------")
-    print("1- Get Student by ID\n" + "2- Get All Students\n" + "3- Get Students by Major\n" + "4- Add Student\n" + "5- Find Common Majors\n" + "6- Delete Student\n" + "7- Calculate Average GPA\n" + "8- Get Top Performers\n" + "9- Exit\n")
+    print("1- Open Tab\n" + "2- Close Tab\n" + "3- Switch Tab\n" + "4- Display All Tabs\n" + "5- Open Nested Tab\n" + "6- Clear All Tabs\n" + "7- Save Tabs\n" + "8- Import Tabs\n" + "9- Exit\n")
     print("----------------------------")
 #-----------------------------------------------------

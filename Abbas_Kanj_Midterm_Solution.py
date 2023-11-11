@@ -9,6 +9,7 @@ from bs4 import BeautifulSoup
 
 #-----------------------------------------------------
 
+#-----------------------------------------------------
 def main():
     print("Greeetings User")
     while(True):
@@ -21,7 +22,9 @@ def main():
             continue
 
         if choice == 1:
-            openTab()
+            title = str(input("Enter the Title of the website: "))
+            url = str(input("Enter the Url of the website"))
+            openTab(title, url)
 
         elif choice == 2:
             closeTab()
@@ -93,3 +96,35 @@ def importTabs():
     print()
 
 #-----------------------------------------------------
+
+listofDictionaries = [
+    {
+        "Index": 1,
+        "Title": "SE Factory",
+        "Url": 'https://https://www.sefactory.io',
+        "NestedTabs": {
+            "Title": "UI",
+            "Url": 'https://www.sefactory.io/uix'
+        }
+    },
+    {
+        "Index": 2,
+        "Title": "Google",
+        "Url": 'https://https://www.google.com',
+    },
+    {
+        "Index": 3,
+        "Title": "W3schools",
+        "Url": 'https://www.w3schools.com',
+        "NestedTabs": {
+            "Title": "Html",
+            "Url": 'https://www.w3schools.com/html/default.asp',
+            "Title1": "Css",
+            "Url1": 'https://www.w3schools.com/css/default.asp',
+            "Title2": 'JavaScript',
+            "Url2": 'https://www.w3schools.com/js/default.asp'
+        }
+    }
+]
+with open("url1.json", "w") as outfile: 
+	json.dump(listofDictionaries, outfile)

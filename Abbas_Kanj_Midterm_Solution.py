@@ -3,6 +3,12 @@
 # Due Date: Nov 12th, 11:59 PM
 # Name: Abbas kanj
 # ---------------------------
+import json
+import requests 
+from bs4 import BeautifulSoup 
+
+#-----------------------------------------------------
+
 def main():
     print("Greeetings User")
     while(True):

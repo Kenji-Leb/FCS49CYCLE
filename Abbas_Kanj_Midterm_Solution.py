@@ -7,10 +7,12 @@ import json
 import requests 
 from bs4 import BeautifulSoup 
 
-#-----------------------------------------------------
-with open('url.json') as json_file:
-    data = json.load(json_file)
-print(data)
+#----------------------------------------------------- 
+filePath = r'C:\Users\abbas\Desktop\Python-Projects\FCS-49-Cycle\url1.json'
+
+with open(filePath) as json_file:
+    dictionaryUrl = json.load(json_file)
+print(dictionaryUrl)
 #-----------------------------------------------------
 def main():
     print("Greeetings User")
@@ -26,8 +28,9 @@ def main():
         if choice == 1:
             title = str(input("Enter the Title of the website: "))
             url = str(input("Enter the Url of the website"))
-            openTab(title, url)
-
+            openTab(dictionaryUrl, title, url)
+            print(dictionaryUrl)
+            
         elif choice == 2:
             closeTab()
 
@@ -59,8 +62,10 @@ def displaymenu():
     print("----------------------------")
 #-----------------------------------------------------
 
-def openTab() :
-    print()
+def openTab(dic, title, url):
+    iter = dic[-1].get("index") + 1
+    dictionaryUrl.append({"index": iter, "Title": title, "Url": url})
+    
 
 #-----------------------------------------------------
 
@@ -98,3 +103,4 @@ def importTabs():
     print()
 
 #-----------------------------------------------------
+main()

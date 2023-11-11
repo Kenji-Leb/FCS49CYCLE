@@ -4,7 +4,7 @@
 # Name: Abbas kanj
 # ---------------------------
 def main():
-
+    print("Greeetings User")
     while(True):
 
         try:

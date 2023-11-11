@@ -13,6 +13,8 @@ filePath = r'C:\Users\abbas\Desktop\Python-Projects\FCS-49-Cycle\url1.json'
 with open(filePath) as json_file:
     dictionaryUrl = json.load(json_file)
 print(dictionaryUrl)
+
+
 #-----------------------------------------------------
 def main():
     print("Greeetings User")
@@ -32,8 +34,9 @@ def main():
             print(dictionaryUrl)
             
         elif choice == 2:
-            closeTab()
-
+            clsdTab = int(input("Enter the index of the tab you want to close: "))
+            closeTab(dictionaryUrl, clsdTab)
+            print(dictionaryUrl)
         elif choice == 3:
             switchTab()
 
@@ -60,18 +63,21 @@ def displaymenu():
     print("----------------------------")
     print("1- Open Tab\n" + "2- Close Tab\n" + "3- Switch Tab\n" + "4- Display All Tabs\n" + "5- Open Nested Tab\n" + "6- Clear All Tabs\n" + "7- Save Tabs\n" + "8- Import Tabs\n" + "9- Exit\n")
     print("----------------------------")
+    
 #-----------------------------------------------------
-
-def openTab(dic, title, url):
-    iter = dic[-1].get("index") + 1
+def openTab(dict, title, url):
+    iter = dict[-1].get("index") + 1
     dictionaryUrl.append({"index": iter, "Title": title, "Url": url})
     
-
 #-----------------------------------------------------
-
-def closeTab():
-    print()
-
+def closeTab(dict, deletedTab):
+    if deletedTab == 0:
+        dict.pop()
+    else:
+        for i in dict:
+            if i["index"] == deletedTab:
+                dict.remove(i)
+                break
 #-----------------------------------------------------
 
 def switchTab():

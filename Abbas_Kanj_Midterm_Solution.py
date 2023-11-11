@@ -15,36 +15,28 @@ def main():
             continue
 
         if choice == 1:
-            iD = int(input("Enter the Student's ID: "))
-            GetStudentbyID(student_data, iD)
+            openTab()
 
         elif choice == 2:
-            GetAllStudents(student_data)
+            closeTab()
 
         elif choice == 3:
-            major = str(input("Enter major: "))
-            GetStudentsbyMajor(student_data, major)
+            switchTab()
 
         elif choice == 4:
-            newName = str(input("Enter Student's name: "))
-            newAge = int(input("Enter Student's Age: "))
-            newMajor = str(input("Enter Studnet's Major: "))
-            newGpa = float(input("Enter Studnent's GPA: "))
-            AddStudent(student_data, newName, newAge, newMajor, newGpa)
+            displayAllTabs()
 
         elif choice == 5:
-            FindCommonMajors(student_data, student_data_2)
+            openNestedTab()
 
         elif choice == 6:
-            student_ID = int(input("Enter the Student's ID you want to remove: "))
-            DeleteStudent(student_data, student_ID)
+            clearAllTabs()
 
         elif choice == 7:
-            CalculateAverageGPA(student_data)
+            saveTabs()
 
         elif choice == 8:
-            top_Performers = int(input("Enter the number of Top Performers: "))
-            GetTopPerformers(student_data, top_Performers)
+            importTabs()
 
         elif choice == 9:
             exit

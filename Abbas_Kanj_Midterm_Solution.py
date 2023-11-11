@@ -48,3 +48,10 @@ def main():
 
         elif choice == 9:
             exit
+
+#-----------------------------------------------------
+def displaymenu():
+    print("----------------------------")
+    print("1- Get Student by ID\n" + "2- Get All Students\n" + "3- Get Students by Major\n" + "4- Add Student\n" + "5- Find Common Majors\n" + "6- Delete Student\n" + "7- Calculate Average GPA\n" + "8- Get Top Performers\n" + "9- Exit\n")
+    print("----------------------------")
+#-----------------------------------------------------

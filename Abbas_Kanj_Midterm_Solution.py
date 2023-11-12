@@ -80,20 +80,20 @@ def displaymenu():
     print("----------------------------")
     
 #-----------------------------------------------------
-def openTab(dict, title, url):
-    iter = dict[-1].get("index") + 1
+def openTab(dict_items, title, url):
+    iter = dict_items[-1].get("index") + 1
     dictionaryUrl.append({"index": iter, "Title": title, "Url": url})
     
 #-----------------------------------------------------
-def closeTab(dict, deletedTab):
+def closeTab(dict_items, deletedTab):
     
     if deletedTab == 0:
-        dict.pop()
+        dict_items.pop()
         
     else:
-        for i in dict:
-            if i["index"] == deletedTab:
-                dict.remove(i)
+        for dict in dict_items:
+            if dict["index"] == deletedTab:
+                dict_items.remove(dict)
                 break
             
 #-----------------------------------------------------

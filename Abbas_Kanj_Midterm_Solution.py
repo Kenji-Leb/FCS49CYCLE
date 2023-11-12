@@ -28,31 +28,46 @@ def main():
             continue
 
         if choice == 1:
+            
             title = str(input("Enter the Title of the website: "))
             url = str(input("Enter the Url of the website"))
             openTab(dictionaryUrl, title, url)
             print(dictionaryUrl)
             
         elif choice == 2:
+            
             clsdTab = int(input("Enter the index of the tab you want to close: "))
             closeTab(dictionaryUrl, clsdTab)
             print(dictionaryUrl)
+            
         elif choice == 3:
-            switchTab()
+            
+            switch_index = int(input("Enter the index of the tab you want to display: "))
+            switchTab(dictionaryUrl, switch_index)
 
         elif choice == 4:
+            
+            
             displayAllTabs()
 
         elif choice == 5:
+            
+            
             openNestedTab()
 
         elif choice == 6:
+            
+            
             clearAllTabs()
 
         elif choice == 7:
+            
+            
             saveTabs()
 
         elif choice == 8:
+            
+            
             importTabs()
 
         elif choice == 9:
@@ -71,17 +86,20 @@ def openTab(dict, title, url):
     
 #-----------------------------------------------------
 def closeTab(dict, deletedTab):
+    
     if deletedTab == 0:
         dict.pop()
+        
     else:
         for i in dict:
             if i["index"] == deletedTab:
                 dict.remove(i)
                 break
+            
 #-----------------------------------------------------
-
 def switchTab():
     print()
+    
 
 #-----------------------------------------------------
 

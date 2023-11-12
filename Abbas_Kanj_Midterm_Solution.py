@@ -126,32 +126,40 @@ def closeTab(dict_items, deletedTab):
             
 #-----------------------------------------------------
 def switchTab(dict_items, displayed_index):
+    # Check if the index is present in the list
+    index_found = False
+    for dict_item in dict_items:
+        for key, value in dict_item.items():
+            if value == displayed_index:
+                index_found = True
+                break
+    
+    if not index_found:
+        print("Index not found")
+        return
+    
     # Displaying the content of the last opened tab
     if displayed_index == 0:
-        
         last_url = dict_items[-1].get("Url")
         # Making a GET request 
         r = requests.get(last_url) 
         # Parsing the HTML 
         soup = BeautifulSoup(r.content, 'html.parser') 
         print(soup.prettify())
-    # Check if the index is present in the list
-    elif displayed_index not in dict_items:
-        print("Index not found!")
     # Display the content of the specified index
     else:
-        
-        for dict in dict_items:
-            for key, value in dict.items():
+        for dict_item in dict_items:
+            for key, value in dict_item.items():
                 if value == displayed_index:
-                    selected_url = dict["Url"]
+                    selected_url = dict_item["Url"]
                     print(selected_url)
-                
-        # Making a GET request 
-        r = requests.get(selected_url) 
-        # Parsing the HTML 
-        soup = BeautifulSoup(r.content, 'html.parser') 
-        print(soup.prettify())
+                    
+                    # Making a GET request 
+                    r = requests.get(selected_url) 
+                    # Parsing the HTML 
+                    soup = BeautifulSoup(r.content, 'html.parser') 
+                    print(soup.prettify())
+                    return
                 
 #-----------------------------------------------------
 def displayAllTabs(dict_items):

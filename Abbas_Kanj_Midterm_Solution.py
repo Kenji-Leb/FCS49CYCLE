@@ -108,6 +108,24 @@ def switchTab(dict, displayed_index):
         soup = BeautifulSoup(r.content, 'html.parser') 
         print(soup.prettify()) 
     
+    else:
+        
+        for i in dict:
+
+            for key, value in i.items():
+                
+                if value == displayed_index:
+                    
+                    selected_url = i[key].get("Url")
+                
+                
+        # Making a GET request 
+        r = requests.get(selected_url) 
+        # Parsing the HTML 
+        soup = BeautifulSoup(r.content, 'html.parser') 
+        print(soup.prettify())
+                
+                
 
 #-----------------------------------------------------
 

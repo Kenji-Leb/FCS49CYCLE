@@ -1,4 +1,4 @@
-# FCS CYCLE 46
+# FCS CYCLE 49
 # Midterm Solution
 # Due Date: Nov 12th, 11:59 PM
 # Name: Abbas kanj
@@ -20,7 +20,7 @@ dictionaryUrl = []
 
 #-----------------------------------------------------
 def main():
-    
+    # Start of the function
     print("Greeetings User")
     while(True):
 
@@ -28,13 +28,14 @@ def main():
             displaymenu()
             choice = int(input("Please select one of the options: "))
         except:
+            # Error handling user input
             print("Invalid Input....")
             continue
 
         if choice == 1:
             # Option for creating a tab
             title = str(input("Enter the Title of the website: "))
-            url = str(input("Enter the Url of the website"))
+            url = str(input("Enter the Url of the website(Make sure it starts with https://)"))
             openTab(dictionaryUrl, title, url)
             
         elif choice == 2:
@@ -141,11 +142,8 @@ def switchTab(dict_items, displayed_index):
     else:
         
         for dict in dict_items:
-
             for key, value in dict.items():
-                
                 if value == displayed_index:
-                    
                     selected_url = dict["Url"]
                     print(selected_url)
                 
@@ -153,7 +151,6 @@ def switchTab(dict_items, displayed_index):
         r = requests.get(selected_url) 
         # Parsing the HTML 
         soup = BeautifulSoup(r.content, 'html.parser') 
-        
         print(soup.prettify())
                 
 #-----------------------------------------------------

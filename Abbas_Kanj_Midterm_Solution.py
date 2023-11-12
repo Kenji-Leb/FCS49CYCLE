@@ -63,8 +63,8 @@ def main():
 
         elif choice == 6:
             
-            
-            clearAllTabs()
+            dictionaryUrl.clear()
+            print("Dictionary Cleared")
 
         elif choice == 7:
             
@@ -165,12 +165,6 @@ def openNestedTab(dictionary, chosen_index, new_Title, new_Url):
         
     print(dictionary)
 #-----------------------------------------------------
-
-def clearAllTabs():
-    print()
-
-#-----------------------------------------------------
-
 def saveTabs():
     print()
 

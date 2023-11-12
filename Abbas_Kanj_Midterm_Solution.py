@@ -47,13 +47,17 @@ def main():
 
         elif choice == 4:
             
-            
             displayAllTabs(dictionaryUrl)
 
         elif choice == 5:
             
+            check_index = int(input("Enter the index of the parent tab you want to insert additional tabs: "))
+            result = checkIndex(dictionaryUrl,check_index)
             
-            openNestedTab()
+            if result:
+                openNestedTab(dictionaryUrl, check_index) 
+            else:
+                print("The index you where searching for is not found")
 
         elif choice == 6:
             
@@ -141,12 +145,11 @@ def displayAllTabs(dict_items):
             nested_tabs = dict['NestedTabs']
             
             for titles in nested_tabs:
+                
                     nested_title = titles.get("Title")
-                    
                     print(f'\t{nested_title}')
 
 #-----------------------------------------------------
-
 def openNestedTab():
     print()
 
@@ -164,6 +167,15 @@ def saveTabs():
 
 def importTabs():
     print()
+
+#-----------------------------------------------------
+def checkIndex(dict_items, index):
+    
+    for dict in dict_items:
+        if dict["index"] == index:
+            return True
+        else:
+            return False
 
 #-----------------------------------------------------
 main()

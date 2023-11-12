@@ -55,7 +55,9 @@ def main():
             result = checkIndex(dictionaryUrl,check_index)
             
             if result:
-                openNestedTab(dictionaryUrl, check_index) 
+                new_title = str(input("Enter the Title of the nested tab: "))
+                new_url = str(input("Enter the Url of the title: "))
+                openNestedTab(dictionaryUrl, check_index, new_title, new_url) 
             else:
                 print("The index you where searching for is not found")
 
@@ -150,9 +152,18 @@ def displayAllTabs(dict_items):
                     print(f'\t{nested_title}')
 
 #-----------------------------------------------------
-def openNestedTab():
-    print()
-
+def openNestedTab(dictionary, chosen_index, new_Title, new_Url):
+    
+    new_dic = {"Title": new_Title, "Url": new_Url}
+    
+    for dict_items in dictionary:
+        if dict_items["index"] == chosen_index:
+            if "NestedTabs" in dict_items:
+                dict_items["NestedTabs"].append(new_dic)
+            else:
+                dict_items["NestedTabs"] = new_dic
+        
+    print(dictionary)
 #-----------------------------------------------------
 
 def clearAllTabs():

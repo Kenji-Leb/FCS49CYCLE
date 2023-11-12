@@ -105,7 +105,10 @@ def openTab(dict_items, title, url):
 #-----------------------------------------------------
 def closeTab(dict_items, deletedTab):
     
-    if deletedTab == 0:
+    if deletedTab not in dict_items:
+        print("Index not found!")
+    
+    elif deletedTab == 0:
         dict_items.pop()
         
     else:

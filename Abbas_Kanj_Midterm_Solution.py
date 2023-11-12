@@ -142,8 +142,8 @@ def displayAllTabs(dict_items):
             
             for titles in nested_tabs:
                     nested_title = titles.get("Title")
-                    if nested_title is not None:
-                        print(f'\t{nested_title}')
+                    
+                    print(f'\t{nested_title}')
 
 #-----------------------------------------------------
 

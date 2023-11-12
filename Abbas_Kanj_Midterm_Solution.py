@@ -87,8 +87,11 @@ def displaymenu():
 #-----------------------------------------------------
 def openTab(dict_items, title, url):
     
-    iter = dict_items[-1].get("index") + 1
-    dictionaryUrl.append({"index": iter, "Title": title, "Url": url})
+    if not dict_items:
+        dict_items.append({"index": 1, "Title": title, "Url": url})
+    else:
+        iter = dict_items[-1].get("index") + 1
+        dict_items.append({"index": iter, "Title": title, "Url": url})
     
 #-----------------------------------------------------
 def closeTab(dict_items, deletedTab):
@@ -169,9 +172,6 @@ def saveTabs(dictionary, new_file_path):
         json.dump(dictionary, outfile)
 
 #-----------------------------------------------------
-
-    
-#-----------------------------------------------------
 def checkIndex(dict_items, index):
     
     for my_dict in dict_items:
@@ -179,7 +179,6 @@ def checkIndex(dict_items, index):
         if my_dict.get("index") == index:
             return True
     return False
-
 
 #-----------------------------------------------------
 main()

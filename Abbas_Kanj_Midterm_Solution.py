@@ -182,11 +182,12 @@ def importTabs():
 #-----------------------------------------------------
 def checkIndex(dict_items, index):
     
-    for dict in dict_items:
-        if dict["index"] == index:
+    for my_dict in dict_items:
+        
+        if my_dict.get("index") == index:
             return True
-        else:
-            return False
+    return False
+
 
 #-----------------------------------------------------
 main()

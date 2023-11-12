@@ -48,7 +48,7 @@ def main():
         elif choice == 4:
             
             
-            displayAllTabs()
+            displayAllTabs(dictionaryUrl)
 
         elif choice == 5:
             
@@ -75,12 +75,14 @@ def main():
 
 #-----------------------------------------------------
 def displaymenu():
+    
     print("----------------------------")
     print("1- Open Tab\n" + "2- Close Tab\n" + "3- Switch Tab\n" + "4- Display All Tabs\n" + "5- Open Nested Tab\n" + "6- Clear All Tabs\n" + "7- Save Tabs\n" + "8- Import Tabs\n" + "9- Exit\n")
     print("----------------------------")
     
 #-----------------------------------------------------
 def openTab(dict_items, title, url):
+    
     iter = dict_items[-1].get("index") + 1
     dictionaryUrl.append({"index": iter, "Title": title, "Url": url})
     
@@ -126,12 +128,16 @@ def switchTab(dict_items, displayed_index):
         
         print(soup.prettify())
                 
-                
-
 #-----------------------------------------------------
-
-def displayAllTabs():
-    print()
+def displayAllTabs(dict_items):
+    
+    for dict in dict_items:
+        
+        title = dict.get("Title")
+        print(title)
+        if "NestedTabs" in dict.keys():
+            nestedTitle = dict["NestedTabs"]["Title"]
+            print(f'\t{nestedTitle}')
 
 #-----------------------------------------------------
 

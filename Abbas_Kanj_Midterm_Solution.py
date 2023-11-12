@@ -71,9 +71,11 @@ def main():
         elif choice == 8:
             
             import_from = str(input("Enter the file path you want to import from: "))
-            with open(import_from) as json_file:
+            defined_import = rf'{import_from}'
+            with open(defined_import) as json_file:
                 imported_dictionary = json.load(json_file)
             dictionaryUrl = imported_dictionary
+            print(dictionaryUrl)
         elif choice == 9:
             exit
 

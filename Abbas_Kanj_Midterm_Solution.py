@@ -10,10 +10,7 @@ from bs4 import BeautifulSoup
 #----------------------------------------------------- 
 filePath = r'C:\Users\abbas\Desktop\Python-Projects\FCS-49-Cycle\url1.json'
 
-with open(filePath) as json_file:
-    dictionaryUrl = json.load(json_file)
-print(dictionaryUrl)
-
+dictionaryUrl = []
 
 #-----------------------------------------------------
 def main():
@@ -73,9 +70,10 @@ def main():
 
         elif choice == 8:
             
-            
-            importTabs()
-
+            import_from = str(input("Enter the file path you want to import from: "))
+            with open(import_from) as json_file:
+                imported_dictionary = json.load(json_file)
+            imported_dictionary = dictionaryUrl
         elif choice == 9:
             exit
 
@@ -172,9 +170,7 @@ def saveTabs(dictionary, new_file_path):
 
 #-----------------------------------------------------
 
-def importTabs():
-    print()
-
+    
 #-----------------------------------------------------
 def checkIndex(dict_items, index):
     

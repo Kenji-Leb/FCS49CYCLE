@@ -97,11 +97,11 @@ def closeTab(dict_items, deletedTab):
                 break
             
 #-----------------------------------------------------
-def switchTab(dict, displayed_index):
+def switchTab(dict_items, displayed_index):
     
     if displayed_index == 0:
         
-        last_url = dict[-1].get("Url")
+        last_url = dict_items[-1].get("Url")
         # Making a GET request 
         r = requests.get(last_url) 
         # Parsing the HTML 
@@ -110,19 +110,20 @@ def switchTab(dict, displayed_index):
     
     else:
         
-        for i in dict:
+        for dict in dict_items:
 
-            for key, value in i.items():
+            for key, value in dict.items():
                 
                 if value == displayed_index:
                     
-                    selected_url = i[key].get("Url")
-                
+                    selected_url = dict["Url"]
+                    print(selected_url)
                 
         # Making a GET request 
         r = requests.get(selected_url) 
         # Parsing the HTML 
         soup = BeautifulSoup(r.content, 'html.parser') 
+        
         print(soup.prettify())
                 
                 

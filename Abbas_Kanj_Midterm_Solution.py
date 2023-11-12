@@ -135,9 +135,15 @@ def displayAllTabs(dict_items):
         
         title = dict.get("Title")
         print(title)
-        if "NestedTabs" in dict.keys():
-            nestedTitle = dict["NestedTabs"]["Title"]
-            print(f'\t{nestedTitle}')
+        
+        if "NestedTabs" in dict:
+            
+            nested_tabs = dict['NestedTabs']
+            
+            for titles in nested_tabs:
+                    nested_title = titles.get("Title")
+                    if nested_title is not None:
+                        print(f'\t{nested_title}')
 
 #-----------------------------------------------------
 

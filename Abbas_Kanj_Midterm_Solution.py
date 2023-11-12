@@ -9,12 +9,18 @@ import requests
 from bs4 import BeautifulSoup 
 
 #----------------------------------------------------- 
-filePath = r'C:\Users\abbas\Desktop\Python-Projects\FCS-49-Cycle\url1.json'
+# Used links:
+# https://www.geeksforgeeks.org
+# https://www.datacamp.com/tutorial/web-scraping-using-python
+# https://stackoverflow.com
 
+#----------------------------------------------------- 
+# Initializing an empty dicitonary if non is imported.
 dictionaryUrl = []
 
 #-----------------------------------------------------
 def main():
+    
     print("Greeetings User")
     while(True):
 

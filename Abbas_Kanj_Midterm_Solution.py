@@ -40,13 +40,13 @@ def main():
             
         elif choice == 2:
             
-            clsdTab = int(input("Enter the index of the tab you want to close: "))
+            clsdTab = int(input("Enter the index of the tab you want to close(Enter 0 to close the last opened tab): "))
             closeTab(dictionaryUrl, clsdTab)
             print(dictionaryUrl)
             
         elif choice == 3:
             
-            switch_index = int(input("Enter the index of the tab you want to display: "))
+            switch_index = int(input("Enter the index of the tab you want to display(Enter 0 to show the last opened tab): "))
             switchTab(dictionaryUrl, switch_index)
 
         elif choice == 4:
@@ -127,7 +127,10 @@ def switchTab(dict_items, displayed_index):
         r = requests.get(last_url) 
         # Parsing the HTML 
         soup = BeautifulSoup(r.content, 'html.parser') 
-        print(soup.prettify()) 
+        print(soup.prettify())
+        
+    elif displayed_index not in dict_items:
+        print("Index not found!")
     
     else:
         
@@ -170,7 +173,11 @@ def openNestedTab(dictionary, chosen_index, new_Title, new_Url):
     new_dic = {"Title": new_Title, "Url": new_Url}
     
     for dict_items in dictionary:
-        if dict_items["index"] == chosen_index:
+        
+        if dict_items["index"] not in dictionary:
+            print("Index wasn't found!")
+        
+        elif dict_items["index"] == chosen_index:
             if "NestedTabs" in dict_items:
                 dict_items["NestedTabs"].append(new_dic)
             else:

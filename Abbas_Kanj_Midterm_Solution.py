@@ -4,6 +4,7 @@
 # Name: Abbas kanj
 # ---------------------------
 import json
+import sys
 import requests 
 from bs4 import BeautifulSoup 
 
@@ -77,7 +78,7 @@ def main():
             dictionaryUrl = imported_dictionary
             print(dictionaryUrl)
         elif choice == 9:
-            exit
+           sys.exit()
 
 #-----------------------------------------------------
 def displaymenu():

@@ -68,8 +68,8 @@ def main():
 
         elif choice == 7:
             
-            
-            saveTabs()
+            new_file_path = str(input("Enter the file path you want to save the tabs in: "))
+            saveTabs(dictionaryUrl, new_file_path)
 
         elif choice == 8:
             
@@ -165,8 +165,10 @@ def openNestedTab(dictionary, chosen_index, new_Title, new_Url):
         
     print(dictionary)
 #-----------------------------------------------------
-def saveTabs():
-    print()
+def saveTabs(dictionary, new_file_path):
+    
+    with open(new_file_path, "w") as outfile: 
+        json.dump(dictionary, outfile)
 
 #-----------------------------------------------------
 

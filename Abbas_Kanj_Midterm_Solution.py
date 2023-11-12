@@ -73,7 +73,7 @@ def main():
             import_from = str(input("Enter the file path you want to import from: "))
             with open(import_from) as json_file:
                 imported_dictionary = json.load(json_file)
-            imported_dictionary = dictionaryUrl
+            dictionaryUrl = imported_dictionary
         elif choice == 9:
             exit
 

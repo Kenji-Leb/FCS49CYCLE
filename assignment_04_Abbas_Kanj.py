@@ -11,11 +11,11 @@ class taskManager:
         self.description = description
         self.prio = priority
         self.comp = completed
-        
+    # Initializing Getters
     def getTask(self):
         return self.taskId
     
-    def getDescrip(self):
+    def getDescription(self):
         return self.description
     
     def getPrio(self):
@@ -23,3 +23,16 @@ class taskManager:
     
     def getComp(self):
         return self.comp
+    # Initializing Setters
+    def setTask(self, new_task):
+        self.taskId = new_task
+        
+    def setDescription(self, new_description):
+        self.description = new_description
+        
+    def setPrio(self, new_prio):
+        self.prio = new_prio
+        
+    def setComp(self, new_comp):
+        self.comp = new_comp
+    

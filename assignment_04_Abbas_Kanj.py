@@ -37,6 +37,14 @@ class Task:
         
     def setComp(self, new_comp):
         self.comp = new_comp
+
+#-----------------------------------------------------
+class Node:
+
+  def __init__(self,info):
+    self.info = info
+    self.next = None 
+    
 #-----------------------------------------------------
 class PriorityQueue:
 
@@ -57,7 +65,7 @@ class PriorityQueue:
 
   def enqueue(self,info):
 
-    node = Node(info)
+    node = Task(info)
 
     if (self.size == 0):
       self.header = node

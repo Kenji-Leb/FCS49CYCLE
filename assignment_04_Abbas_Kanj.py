@@ -3,7 +3,7 @@
 # Due Date: November 25, 10am
 # Name: Abbas Kanj
 #---------------------------------
-class task:
+class Task:
     
     def __init__(self, task_id, description, priority, completed):
         
@@ -38,6 +38,68 @@ class task:
     def setComp(self, new_comp):
         self.comp = new_comp
 #-----------------------------------------------------
+class PriorityQueue:
+
+  def __init__(self):
+    self.header = None
+    self.size = 0
+
+  def displayQueue(self):
+
+    current = self.header
+  
+    while (current.next != None):
+      print(current.info,end="--")
+      current = current.next
+  
+    print(current.info)
+
+
+  def enqueue(self,info):
+
+    node = Node(info)
+
+    if (self.size == 0):
+      self.header = node
+      self.size += 1
+      print("we successfully added", node.info)
+
+    else:
+
+      if (node.info > self.header.info):
+
+        node.next = self.header
+        self.header = node
+        self.size += 1
+
+      else:
+        current = self.header
+        previous = current
+
+        while current != None and current.info >= node.info:
+          previous = current
+          current = current.next
+
+        previous.next = node
+        node.next = current
+        self.size += 1
+        
+  def dequeue(self):
+    # Dequeue will remain the same as a regular queue since the logic is still the same.
+    if self.size == 0:
+      print("Your Queue is Empty! Enqueue first.")
+    elif self.size == 1:
+      print("We are removing:", self.header.info)
+      self.header = None
+      self.size -= 1
+    else:
+      print("We are removing:", self.header.info)
+      current = self.header
+      self.header = self.header.next
+      current.next = None
+      self.size -= 1
+
+#-----------------------------------------------------
 def main():
 
     while(True):
@@ -51,7 +113,10 @@ def main():
 
         if choice == 1:
             
-            addNewTask
+            task_discription = str(input("Enter the discription of the task: "))
+            task_prio = int(input("Enter the priority of the task: "))
+            task_completion = bool(input("Enter wether the task is comppleted or not(True/ False): "))
+            addNewTask()
 
         elif choice == 2:
             

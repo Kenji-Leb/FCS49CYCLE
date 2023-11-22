@@ -65,7 +65,7 @@ class PriorityQueue:
 
   def enqueue(self,info):
 
-    node = Task(info)
+    node = Node(info)
 
     if (self.size == 0):
       self.header = node

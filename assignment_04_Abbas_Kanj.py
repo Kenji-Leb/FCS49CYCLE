@@ -10,4 +10,16 @@ class taskManager:
         self.taskId = task_id
         self.description = description
         self.prio = priority
-        self.completed = completed
+        self.comp = completed
+        
+    def getTask(self):
+        return self.taskId
+    
+    def getDescrip(self):
+        return self.description
+    
+    def getPrio(self):
+        return self.prio
+    
+    def getComp(self):
+        return self.comp
